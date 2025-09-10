@@ -1,12 +1,12 @@
-# Mini App - FastAPI + DBZero Template
+# Mini App - FastAPI + dbzero Template
 
-A template FastAPI application with DBZero database integration, designed to provide a quick start for building applications with persistent data storage.
+A template FastAPI application with dbzero database integration, designed to provide a quick start for building applications with persistent data storage.
 
 ## 🚀 Features
 
 - **FastAPI** - Modern, fast web framework for building APIs
-- **DBZero Integration** - Persistent database storage with automatic connection management
-- **Docker Support** - Containerized deployment using local DBZero package
+- **dbzero Integration** - Persistent database storage with automatic connection management
+- **Docker Support** - Containerized deployment using local dbzero package
 - **Configuration Management** - Environment-based configuration with Pydantic
 - **Health Checks** - Built-in health monitoring endpoints
 - **API Documentation** - Automatic OpenAPI/Swagger documentation
@@ -20,7 +20,7 @@ mini_app/
 │   ├── main.py              # FastAPI application with endpoints
 │   ├── config.py            # Configuration management
 │   └── settings.py          # Pydantic settings model
-├── packages/                # Local DBZero package directory
+├── packages/                # Local dbzero package directory
 │   └── dbzeroce-0.0.1-cp311-cp311-linux_x86_64.whl
 ├── Dockerfile               # Docker build using local package
 ├── docker-compose.yml       # Development docker compose
@@ -32,9 +32,9 @@ mini_app/
 
 ## 🛠️ Prerequisites
 
-1. **DBZero Local Package**: The DBZero wheel file is located in the `packages/` directory
+1. **dbzero Local Package**: The dbzero wheel file is located in the `packages/` directory
 2. **Docker**: For containerized deployment
-3. **Linux with Python 3.11**: Required for local development (DBZero package is built for Linux x86_64)
+3. **Linux with Python 3.11**: Required for local development (dbzero package is built for Linux x86_64)
 
 ## 🏃 Quick Start
 
@@ -94,14 +94,14 @@ For local development without Docker (Linux systems with Python 3.11):
 # Install dependencies
 pip install -r requirements.txt
 
-# Install DBZero from local package
+# Install dbzero from local package
 pip install packages/dbzeroce-0.0.1-cp311-cp311-linux_x86_64.whl
 
 # Run the application
 python -m mini_app.main
 ```
 
-**Note**: Local development is only supported on Linux systems with Python 3.11 due to the compiled nature of the DBZero package.
+**Note**: Local development is only supported on Linux systems with Python 3.11 due to the compiled nature of the dbzero package.
 
 ## 🌐 Accessing the Application
 
@@ -119,7 +119,7 @@ Once running, the application is available at:
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET    | `/`      | Root endpoint with basic information |
-| GET    | `/healthcheck` | Health check with DBZero status |
+| GET    | `/healthcheck` | Health check with dbzero status |
 
 ### Example API Usage
 
@@ -169,21 +169,21 @@ PORT=8080
 
 ### Project Structure Explained
 
-- **`mini_app/main.py`**: Main FastAPI application with all endpoints and DBZero integration
-- **`mini_app/config.py`**: Configuration management and DBZero setup
+- **`mini_app/main.py`**: Main FastAPI application with all endpoints and dbzero integration
+- **`mini_app/config.py`**: Configuration management and dbzero setup
 - **`mini_app/settings.py`**: Pydantic models for settings validation
-- **`packages/`**: Directory containing the local DBZero wheel package
-- **`Dockerfile`**: Docker build configuration using local DBZero package
+- **`packages/`**: Directory containing the local dbzero wheel package
+- **`Dockerfile`**: Docker build configuration using local dbzero package
 - **`build_and_run.sh`**: Convenient script for building and running with package validation
 
 ### Adding New Endpoints
 
 1. Add your endpoint to `mini_app/main.py`
-2. Use the existing DBZero connection pattern
+2. Use the existing dbzero connection pattern
 3. Add appropriate Pydantic models for request/response
 4. Update this README with new endpoint documentation
 
-### DBZero Integration Pattern
+### dbzero Integration Pattern
 
 ```python
 # In your endpoint functions:
@@ -191,7 +191,7 @@ try:
     # Ensure connection is active
     Connection.assure_initialized()
     
-    # Your DBZero operations here
+    # Your dbzero operations here
     # Example: read/write operations
     
     return result
@@ -213,25 +213,25 @@ The Dockerfile uses a multi-stage build:
 
 ### Volumes
 
-- **`mini_app_data`**: Persistent storage for DBZero database files
+- **`mini_app_data`**: Persistent storage for dbzero database files
 - **Source code mount** (in docker-compose): For development hot-reloading
 
 ### Health Checks
 
 The container includes health checks that verify:
 - Application is responding
-- DBZero connection is healthy
+- dbzero connection is healthy
 - API endpoints are accessible
 
 ## 🔧 Troubleshooting
 
 ### Common Issues
 
-1. **DBZero package not found**
+1. **dbzero package not found**
    ```
-   ERROR: DBZero package image 'dbzero_ce_package' not found!
+   ERROR: dbzero package image 'dbzero_ce_package' not found!
    ```
-   **Solution**: Build the DBZero package first (see Prerequisites)
+   **Solution**: Ensure the dbzero wheel file exists in the packages/ directory
 
 2. **Port already in use**
    ```
@@ -283,7 +283,7 @@ This is a template project. Add your contribution guidelines here.
 ## 📞 Support
 
 For issues related to:
-- **DBZero**: Check the DBZero documentation
+- **dbzero**: Check the dbzero documentation
 - **FastAPI**: Check the [FastAPI documentation](https://fastapi.tiangolo.com/)
 - **This template**: Create an issue in the project repository
 

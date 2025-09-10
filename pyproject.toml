@@ -1,0 +1,28 @@
+[project]
+name = "mini_app"
+version = "0.1.0"
+authors = [
+  { name="Mini App Team", email="team@example.com" },
+]
+description = "A template FastAPI application with DBZero integration"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "fastapi==0.115.5",
+    "uvicorn==0.32.1",
+    "pydantic==2.9.2",
+    "pydantic-settings==2.8.0",
+    "python-dotenv==1.0.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/example/mini_app"
+Issues = "https://github.com/example/mini_app/issues"
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"

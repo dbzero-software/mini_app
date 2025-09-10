@@ -34,7 +34,7 @@ mini_app/
 
 1. **DBZero Local Package**: The DBZero wheel file is located in the `packages/` directory
 2. **Docker**: For containerized deployment
-3. **Python 3.8+**: For local development
+3. **Linux with Python 3.11**: Required for local development (DBZero package is built for Linux x86_64)
 
 ## 🏃 Quick Start
 
@@ -86,9 +86,9 @@ docker run -d \
   mini_app
 ```
 
-### Option 4: Local Development
+### Option 4: Local Development (Linux + Python 3.11 only)
 
-For local development without Docker:
+For local development without Docker (Linux systems with Python 3.11):
 
 ```bash
 # Install dependencies
@@ -100,6 +100,8 @@ pip install packages/dbzeroce-0.0.1-cp311-cp311-linux_x86_64.whl
 # Run the application
 python -m mini_app.main
 ```
+
+**Note**: Local development is only supported on Linux systems with Python 3.11 due to the compiled nature of the DBZero package.
 
 ## 🌐 Accessing the Application
 

@@ -6,7 +6,7 @@ A template FastAPI application with DBZero database integration, designed to pro
 
 - **FastAPI** - Modern, fast web framework for building APIs
 - **DBZero Integration** - Persistent database storage with automatic connection management
-- **Docker Support** - Containerized deployment with multi-stage builds
+- **Docker Support** - Containerized deployment using local DBZero package
 - **Configuration Management** - Environment-based configuration with Pydantic
 - **Health Checks** - Built-in health monitoring endpoints
 - **API Documentation** - Automatic OpenAPI/Swagger documentation
@@ -20,7 +20,9 @@ mini_app/
 │   ├── main.py              # FastAPI application with endpoints
 │   ├── config.py            # Configuration management
 │   └── settings.py          # Pydantic settings model
-├── Dockerfile               # Multi-stage Docker build
+├── packages/                # Local DBZero package directory
+│   └── dbzeroce-0.0.1-cp311-cp311-linux_x86_64.whl
+├── Dockerfile               # Docker build using local package
 ├── docker-compose.yml       # Development docker compose
 ├── build_and_run.sh         # Build and run script
 ├── requirements.txt         # Python dependencies
@@ -30,18 +32,9 @@ mini_app/
 
 ## 🛠️ Prerequisites
 
-1. **DBZero Package**: Ensure the `dbzero_ce_package` Docker image is available
+1. **DBZero Local Package**: The DBZero wheel file is located in the `packages/` directory
 2. **Docker**: For containerized deployment
 3. **Python 3.8+**: For local development
-
-### Building DBZero Package
-
-If the DBZero package image doesn't exist, build it first:
-
-```bash
-cd ../dbzero_ce
-docker build -t dbzero_ce_package -f Dockerfile-package .
-```
 
 ## 🏃 Quick Start
 
@@ -101,8 +94,8 @@ For local development without Docker:
 # Install dependencies
 pip install -r requirements.txt
 
-# Install DBZero (you'll need the wheel file)
-pip install path/to/dbzeroce-0.0.1-cp311-cp311-linux_x86_64.whl
+# Install DBZero from local package
+pip install packages/dbzeroce-0.0.1-cp311-cp311-linux_x86_64.whl
 
 # Run the application
 python -m mini_app.main
@@ -177,8 +170,9 @@ PORT=8080
 - **`mini_app/main.py`**: Main FastAPI application with all endpoints and DBZero integration
 - **`mini_app/config.py`**: Configuration management and DBZero setup
 - **`mini_app/settings.py`**: Pydantic models for settings validation
-- **`Dockerfile`**: Multi-stage build copying DBZero package
-- **`build_and_run.sh`**: Convenient script for building and running
+- **`packages/`**: Directory containing the local DBZero wheel package
+- **`Dockerfile`**: Docker build configuration using local DBZero package
+- **`build_and_run.sh`**: Convenient script for building and running with package validation
 
 ### Adding New Endpoints
 
